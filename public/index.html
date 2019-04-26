@@ -70,6 +70,10 @@
           });
       }
 
+      function onClick(event){
+          alert(direction);
+      }
+
       // Check if device can provide absolute orientation data
       if (window.DeviceOrientationAbsoluteEvent) {
           window.addEventListener("DeviceOrientationAbsoluteEvent", deviceOrientationListener);
@@ -86,5 +90,6 @@
 <body>
 <br><br>
 <p id="heading" style="text-align:center"></p>
+<button onClick="onClick(e)">Click me!</button>
 </body>
 </html>
