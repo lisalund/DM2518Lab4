@@ -23,7 +23,6 @@ class Main extends Component {
     var beta     = event.beta; //x axis rotation [-180, 180]
     var gamma   = event.gamma; //y axis rotation [-90, 90]
 
-      console.log(alpha);
 
     //Check if absolute values have been sent
     if (typeof event.webkitCompassHeading !== "undefined") {
@@ -32,7 +31,7 @@ class Main extends Component {
       //document.getElementById("heading").innerHTML = heading.toFixed([0]);
     }
     else {
-      alert("Your device is reporting relative alpha values, so this compass won't point north :(");
+      alert("Your device is reporting relative alpha values, so this compass won't point north :( ", alpha);
       var heading = 360 - alpha; //heading [0, 360)
       //document.getElementById("heading").innerHTML = heading.toFixed([0]);
     }
