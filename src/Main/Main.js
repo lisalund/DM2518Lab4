@@ -23,6 +23,8 @@ class Main extends Component {
     var beta     = event.beta; //x axis rotation [-180, 180]
     var gamma   = event.gamma; //y axis rotation [-90, 90]
 
+      console.log(alpha);
+
     //Check if absolute values have been sent
     if (typeof event.webkitCompassHeading !== "undefined") {
       alpha = event.webkitCompassHeading; //for iOS devices
