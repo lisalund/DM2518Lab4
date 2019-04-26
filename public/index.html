@@ -10,6 +10,7 @@
   </style>
   <title>Compass</title>
   <script>
+      let direction = null;
       // Get event data
       function deviceOrientationListener(event) {
           var alpha    = event.alpha; //z axis rotation [0,360)
@@ -19,27 +20,54 @@
           if (typeof event.webkitCompassHeading !== "undefined") {
               alpha = event.webkitCompassHeading; //iOS non-standard
               var heading = alpha
-              document.getElementById("heading").innerHTML = heading.toFixed([0]);
+              //document.getElementById("heading").innerHTML = heading.toFixed([0]);
           }
           else {
               //alert("Your device is reporting relative alpha values, so this compass won't point north 😞");
               var heading = 360 - alpha; //heading [0, 360)
-              document.getElementById("heading").innerHTML = heading.toFixed([0]);
+              //document.getElementById("heading").innerHTML = heading.toFixed([0]);
           }
 
           // Change backgroud colour based on heading
           // Green for North and South, black otherwise
-          if (heading > 359 || heading < 1) { //Allow +- 1 degree
-              document.body.style.backgroundColor = "green";
-              document.getElementById("heading").innerHTML = "N"; // North
+          if (heading > 315 || heading <= 45) { //Allow +- 45 degree
+              direction = "N";
           }
-          else if (heading > 179 && heading < 181){ //Allow +- 1 degree
-              document.body.style.backgroundColor = "green";
-              document.getElementById("heading").innerHTML = "S"; // South
+          else if (heading > 135 && heading <= 225){ //Allow +- 45 degree
+              direction= "S";
           }
-          else { // Otherwise, use near black
-              document.body.style.backgroundColor = "#161616";
+          else if (heading > 225 && heading <= 315){ //Allow +- 45 degree
+              direction = "E";
           }
+          else if (heading > 45 && heading <= 135){ //Allow +- 45 degree
+              direction="W";
+          }
+      }
+
+      var pubnubDemo = new PubNub({
+          publishKey: 'pub-c-26d74004-c975-4240-9d18-1d05178629b8',
+          subscribeKey: 'sub-c-eec5326a-67ed-11e9-89f1-56e8a30b5f0e'
+      });
+
+      pubnubDemo.addListener({
+          message: function(message) {
+              alert(message)
+          }
+      });
+
+      function subscribe(channel){
+          pubnubDemo.subscribe({
+              channels: [channel]
+          });
+      }
+
+      function publish(message, channel){
+          pubnubDemo.publish({
+              message: {
+                  message
+              },
+              channel: channel
+          });
       }
 
       // Check if device can provide absolute orientation data
@@ -50,9 +78,10 @@
           window.addEventListener("deviceorientation", deviceOrientationListener);
       } // Send an alert if the device isn't compatible
       else {
-          //alert("Sorry, try again on a compatible mobile device!");
+          alert("Sorry, try again on a compatible mobile device!");
       }
   </script>
+
 </head>
 <body>
 <br><br>
