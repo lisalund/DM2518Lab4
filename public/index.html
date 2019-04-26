@@ -71,7 +71,7 @@
           });
       }
 
-      function onClick(){
+      function onClick(e){
           alert(direction);
           console.log("Button clicked");
       }
@@ -91,7 +91,13 @@
 </head>
 <body>
 <br><br>
-<p id="heading" style="color:blue;">aaaAAAAAaaaa</p>
-<button onClick="onClick">Click me!</button>
+<p id="heading" style="color:blueviolet;">aaaAAAAAaaaa</p>
+<button id="button">Click me!</button>
 </body>
+
+<script>
+    document.getElementById("button").addEventListener("click", function(){
+        console.log("buttonClicked");
+    });
+</script>
 </html>
