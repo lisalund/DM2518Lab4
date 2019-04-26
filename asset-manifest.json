@@ -1,13 +1,13 @@
 {
-  "main.css": "/DM2518Lab4/static/css/main.f1faefff.chunk.css",
-  "main.js": "/DM2518Lab4/static/js/main.96166014.chunk.js",
-  "main.js.map": "/DM2518Lab4/static/js/main.96166014.chunk.js.map",
+  "main.css": "/DM2518Lab4/static/css/main.6db9d19d.chunk.css",
+  "main.js": "/DM2518Lab4/static/js/main.61dcf098.chunk.js",
+  "main.js.map": "/DM2518Lab4/static/js/main.61dcf098.chunk.js.map",
   "runtime~main.js": "/DM2518Lab4/static/js/runtime~main.011d939f.js",
   "runtime~main.js.map": "/DM2518Lab4/static/js/runtime~main.011d939f.js.map",
   "static/js/2.64ee718f.chunk.js": "/DM2518Lab4/static/js/2.64ee718f.chunk.js",
   "static/js/2.64ee718f.chunk.js.map": "/DM2518Lab4/static/js/2.64ee718f.chunk.js.map",
   "index.html": "/DM2518Lab4/index.html",
-  "precache-manifest.d94e8e212430bf7a57cfda5091519fab.js": "/DM2518Lab4/precache-manifest.d94e8e212430bf7a57cfda5091519fab.js",
+  "precache-manifest.b222111de6848bb39dabe5bd0550d1b4.js": "/DM2518Lab4/precache-manifest.b222111de6848bb39dabe5bd0550d1b4.js",
   "service-worker.js": "/DM2518Lab4/service-worker.js",
-  "static/css/main.f1faefff.chunk.css.map": "/DM2518Lab4/static/css/main.f1faefff.chunk.css.map"
+  "static/css/main.6db9d19d.chunk.css.map": "/DM2518Lab4/static/css/main.6db9d19d.chunk.css.map"
 }
