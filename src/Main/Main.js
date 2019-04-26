@@ -31,7 +31,7 @@ class Main extends Component {
       //document.getElementById("heading").innerHTML = heading.toFixed([0]);
     }
     else {
-      alert("Your device is reporting relative alpha values, so this compass won't point north :( alpha:", typeof alpha);
+      alert("Your device is reporting relative alpha values, so this compass won't point north :( alpha:", typeof event);
       var heading = 360 - alpha; //heading [0, 360)
       //document.getElementById("heading").innerHTML = heading.toFixed([0]);
     }
