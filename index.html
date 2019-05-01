@@ -104,6 +104,8 @@
     <div class="form-group">
         <label for="messageBox">Message</label>
         <textarea class="form-control" id="messageBox" rows="3"></textarea>
+        <label for="channelBox">Channel</label>
+        <textarea class="form-control" id="channelBox" rows="3"></textarea>
     </div>
     <button type="button" class="btn btn-primary" id="send">Send</button>
     <button type="button" class="btn btn-primary" id="subscribe">Subscribe</button>
@@ -118,10 +120,10 @@
         document.getElementById("p").innerHTML = direction;
     });
     document.getElementById("subscribe").addEventListener("click", function(){
-        var content = document.getElementById("messageBox").value;
+        var channel = document.getElementById("channelBox").value;
         console.log("Subscribe button");
-        console.log(content);
-        document.getElementById("p").innerHTML = direction;
+        console.log(channel);
+        document.getElementById("p").innerHTML = ("channel "+ channel);
     });
 </script>
 </html>
