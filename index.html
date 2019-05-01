@@ -58,7 +58,7 @@
       function subscribe(){
           pubnubDemo.addListener({
               message: function(message) {
-                  alert(message)
+                  document.getElementById("channelBox").placeholder = message;
               }
           });
           pubnubDemo.subscribe({
@@ -99,7 +99,7 @@
 </head>
 <body>
 <br><br>
-<p id="p" style="color:blue;">aaaAAAAAaaaa</p>
+<p id="p" style="color:rebeccapurple;">aaaAAAAAaaaa</p>
 <form>
     <div class="form-group">
         <label for="messageBox">Message</label>
