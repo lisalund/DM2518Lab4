@@ -54,17 +54,22 @@
           subscribeKey: 'sub-c-a979f352-6bef-11e9-81d5-56c3556875f9'
       });
 
+      let pubnubListener =  {
+          message: function(message) {
+              document.getElementById("channelBox").placeholder = message.message["message"];
+          }
+      };
 
       function subscribe(){
-          pubnubDemo.addListener({
-              message: function(message) {
-                  document.getElementById("channelBox").placeholder = message;
-              }
-          });
+          pubnubDemo.addListener(pubnubListener);
           pubnubDemo.subscribe({
               channels: [direction]
           });
           console.log("subscribed to channel " , direction);
+      }
+
+      function  unsubscribe(){
+          pubnubDemo.removeListener(pubnubListener);
       }
 
       function publish(message, channel){
@@ -99,7 +104,7 @@
 </head>
 <body>
 <br><br>
-<p id="p" style="color:rebeccapurple;">aaaAAAAAaaaa</p>
+<p id="p" style="color:aqua;">aaaAAAAAaaaa</p>
 <form>
     <div class="form-group">
         <label for="messageBox">Message</label>
@@ -122,10 +127,14 @@
     });
     document.getElementById("subscribe").addEventListener("click", function(){
         var channel = document.getElementById("channelBox").value;
-        console.log("Subscribe button");
-        console.log(channel);
-        document.getElementById("p").innerHTML = ("channel "+ channel);
-        subscribe();
+        if(document.getElementById("subscribe").innerText === "Unsubscribe"){
+            document.getElementById("subscribe").innerText = "Subscribe"
+        }else {
+            console.log(channel);
+            document.getElementById("p").innerHTML = ("channel "+ channel);
+            subscribe();
+            document.getElementById("subscribe").innerText = "Unsubscribe";
+        }
     });
 </script>
 </html>
