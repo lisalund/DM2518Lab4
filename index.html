@@ -2,6 +2,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
     <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
     <!-- Latest compiled and minified CSS -->
@@ -73,11 +74,13 @@
           pubnubDemo.subscribe({
               channels: [direction]
           });
+          document.getElementById("subDirection").innerHTML = direction;
           console.log("subscribed to channel " , direction);
       }
 
       function  unsubscribe(){
           pubnubDemo.removeListener(pubnubListener);
+          document.getElementById("subDirection").innerHTML = "No direction :'(";
       }
 
       function publish(message, channel){
@@ -113,7 +116,14 @@
 <body>
 <div style="padding:5px">
     <br><br>
-    <p id="direction" style="color:black; font-size: larger">aaaAAAAAaaaa</p>
+    <div class="sendTo">
+        <p>Send to: </p>
+        <p id="direction" style="color:black; font-size: larger">no direction :'(</p>
+    </div>
+    <div class="subTo">
+        <p>Subscribed to: </p>
+        <p id="subDirection" style="color:black; font-size: larger">no direction :'(</p>
+    </div>
     <form>
         <div class="form-group">
             <label for="messageBox">Message</label>
