@@ -99,7 +99,7 @@
 </head>
 <body>
 <br><br>
-<p style="color:green;">aaaAAAAAaaaa</p>
+<p id="p" style="color:orange;">aaaAAAAAaaaa</p>
 <form>
     <div class="form-group">
         <label for="messageBox">Message</label>
@@ -114,6 +114,7 @@
         var content = document.getElementById("messageBox").value;
         console.log("buttonClicked");
         console.log(content);
+        document.getElementById("p").innerHTML = direction;
     });
 </script>
 </html>
