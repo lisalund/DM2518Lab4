@@ -99,20 +99,27 @@
 </head>
 <body>
 <br><br>
-<p id="p" style="color:orange;">aaaAAAAAaaaa</p>
+<p id="p" style="color:blue;">aaaAAAAAaaaa</p>
 <form>
     <div class="form-group">
         <label for="messageBox">Message</label>
         <textarea class="form-control" id="messageBox" rows="3"></textarea>
     </div>
-    <button type="button" class="btn btn-primary" id="button">Send</button>
+    <button type="button" class="btn btn-primary" id="send">Send</button>
+    <button type="button" class="btn btn-primary" id="subscribe">Subscribe</button>
 </form>
 </body>
 
 <script>
-    document.getElementById("button").addEventListener("click", function(){
+    document.getElementById("send").addEventListener("click", function(){
         var content = document.getElementById("messageBox").value;
         console.log("buttonClicked");
+        console.log(content);
+        document.getElementById("p").innerHTML = direction;
+    });
+    document.getElementById("subscribe").addEventListener("click", function(){
+        var content = document.getElementById("messageBox").value;
+        console.log("Subscribe button");
         console.log(content);
         document.getElementById("p").innerHTML = direction;
     });
