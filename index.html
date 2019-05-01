@@ -64,6 +64,7 @@
           pubnubDemo.subscribe({
               channels: [channel]
           });
+          console.log("subscribed to channel " , channel);
       }
 
       function publish(message, channel){
@@ -73,6 +74,7 @@
               },
               channel: channel
           });
+          console.log("published ", message,  " to: ", channel);
       }
 
       function onClick(e){
@@ -97,13 +99,13 @@
 </head>
 <body>
 <br><br>
-<p style="color:red;">aaaAAAAAaaaa</p>
+<p style="color:green;">aaaAAAAAaaaa</p>
 <form>
     <div class="form-group">
         <label for="messageBox">Message</label>
         <textarea class="form-control" id="messageBox" rows="3"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary" id="button">Send</button>
+    <button type="button" class="btn btn-primary" id="button">Send</button>
 </form>
 </body>
 
