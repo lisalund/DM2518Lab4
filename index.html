@@ -50,8 +50,8 @@
       }
 
       var pubnubDemo = new PubNub({
-          publishKey: 'pub-c-26d74004-c975-4240-9d18-1d05178629b8',
-          subscribeKey: 'sub-c-eec5326a-67ed-11e9-89f1-56e8a30b5f0e'
+          publishKey: 'pub-c-540e5f86-7aac-4f04-878d-b8758e707857',
+          subscribeKey: 'sub-c-a979f352-6bef-11e9-81d5-56c3556875f9'
       });
 
       pubnubDemo.addListener({
@@ -60,11 +60,11 @@
           }
       });
 
-      function subscribe(channel){
+      function subscribe(){
           pubnubDemo.subscribe({
-              channels: [channel]
+              channels: [direction]
           });
-          console.log("subscribed to channel " , channel);
+          console.log("subscribed to channel " , direction);
       }
 
       function publish(message, channel){
@@ -118,6 +118,7 @@
         console.log("buttonClicked");
         console.log(content);
         document.getElementById("p").innerHTML = direction;
+        publish(content, direction);
     });
     document.getElementById("subscribe").addEventListener("click", function(){
         var channel = document.getElementById("channelBox").value;
