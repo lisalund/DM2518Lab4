@@ -54,13 +54,13 @@
           subscribeKey: 'sub-c-a979f352-6bef-11e9-81d5-56c3556875f9'
       });
 
-      pubnubDemo.addListener({
-          message: function(message) {
-              alert(message)
-          }
-      });
 
       function subscribe(){
+          pubnubDemo.addListener({
+              message: function(message) {
+                  alert(message)
+              }
+          });
           pubnubDemo.subscribe({
               channels: [direction]
           });
@@ -99,7 +99,7 @@
 </head>
 <body>
 <br><br>
-<p id="p" style="color:green;">aaaAAAAAaaaa</p>
+<p id="p" style="color:blue;">aaaAAAAAaaaa</p>
 <form>
     <div class="form-group">
         <label for="messageBox">Message</label>
