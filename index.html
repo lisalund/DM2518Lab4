@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
@@ -47,6 +50,11 @@
           else if (heading > 45 && heading <= 135){ //Allow +- 45 degree
               direction="W";
           }
+          else {
+              direction = "N";
+          }
+
+          document.getElementById("direction").innerHTML = direction;
       }
 
       var pubnubDemo = new PubNub({
@@ -103,36 +111,37 @@
 
 </head>
 <body>
-<br><br>
-<p id="p" style="color:aqua;">aaaAAAAAaaaa</p>
-<form>
-    <div class="form-group">
-        <label for="messageBox">Message</label>
-        <textarea class="form-control" id="messageBox" rows="3"></textarea>
-        <label for="channelBox">Channel</label>
-        <textarea class="form-control" id="channelBox" rows="3" readonly></textarea>
-    </div>
-    <button type="button" class="btn btn-primary" id="send">Send</button>
-    <button type="button" class="btn btn-primary" id="subscribe">Subscribe</button>
+<div style="padding:5px">
+    <br><br>
+    <p id="direction" style="color:black; font-size: larger">aaaAAAAAaaaa</p>
+    <form>
+        <div class="form-group">
+            <label for="messageBox">Message</label>
+            <textarea class="form-control" id="messageBox" rows="3"></textarea>
+            <label for="channelBox">Channel</label>
+            <textarea class="form-control" id="channelBox" rows="3" readonly></textarea>
+        </div>
+        <button type="button" class="btn btn-primary" id="send">Send</button>
+        <button type="button" class="btn btn-primary" id="subscribe">Subscribe</button>
 </form>
+</div>
 </body>
 
 <script>
+
     document.getElementById("send").addEventListener("click", function(){
         var content = document.getElementById("messageBox").value;
         console.log("buttonClicked");
         console.log(content);
-        document.getElementById("p").innerHTML = direction;
         publish(content, direction);
     });
+
     document.getElementById("subscribe").addEventListener("click", function(){
-        var channel = document.getElementById("channelBox").value;
         if(document.getElementById("subscribe").innerText === "Unsubscribe"){
             document.getElementById("subscribe").innerText = "Subscribe";
             unsubscribe();
         }else {
-            console.log(channel);
-            document.getElementById("p").innerHTML = ("channel "+ channel);
+            //document.getElementById("p").innerHTML = ("channel "+ channel);
             subscribe();
             document.getElementById("subscribe").innerText = "Unsubscribe";
         }
