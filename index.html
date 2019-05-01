@@ -128,7 +128,8 @@
     document.getElementById("subscribe").addEventListener("click", function(){
         var channel = document.getElementById("channelBox").value;
         if(document.getElementById("subscribe").innerText === "Unsubscribe"){
-            document.getElementById("subscribe").innerText = "Subscribe"
+            document.getElementById("subscribe").innerText = "Subscribe";
+            unsubscribe();
         }else {
             console.log(channel);
             document.getElementById("p").innerHTML = ("channel "+ channel);
